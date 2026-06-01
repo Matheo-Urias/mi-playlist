@@ -3,103 +3,94 @@ window.onload = function() {
     let canciones = [
         {
             titulo: "A Pearl",
-            descripcion: "Una de mi canciones favoritas de Mitski por su increíble fuerza instrumental y su letra.",
+            descripcion: "De las mejores canciones de Mitski por su letra y significados.",
             idVideo: "_lYA3i3QkWM",
-            esIframe: true // Dejamos el iframe de Mitski porque es el único que sí da permiso
+            urlImagen: "https://f4.bcbits.com/img/a2337835939_10.jpg"
         },
         {
             titulo: "Lost",
             descripcion: "Un clásico del R&B con un ritmo increíble de Frank Ocean.",
-            idVideo: "pY_j8bby7S0"
+            idVideo: "J3DWAJGaf7o",
+            urlImagen: "https://i.scdn.co/image/ab67616d0000b273f11f1c4ad183b7fa625f8534"
         },
         {
             titulo: "Disillusioned",
-            descripcion: "La voz de Daniel Caesar y la atmósfera de este tema son de otro mundo.",
-            idVideo: "uQDf_k_F7pY"
+            descripcion: "La voz de Daniel Caesar y la atmósfera es de otro mundo.",
+            idVideo: "DloZ1xZHCmo",
+            urlImagen: "https://i1.sndcdn.com/artworks-e86yoMbvPWNx-0-t1080x1080.jpg"
         },
         {
             titulo: "Kill You To Try",
-            descripcion: "Un temazo con esa vibra setentera nostálgica espectacular.",
-            idVideo: "m9u8d00yS4Q"
+            descripcion: "Vibra setentera espectacular que da Daisy Jones & The Six.",
+            idVideo: "0m_DYxdITjs",
+            urlImagen: "https://i.scdn.co/image/ab67616d0000b27331e78717bfdccaebbab1eadb"
         },
         {
             titulo: "Butterflies",
-            descripcion: "R&B suave y con mucho estilo, Brent Faiyaz nunca falla.",
-            idVideo: "kYgV8gXp2eA"
+            descripcion: "R&B suave y con mucho estilo, Brent Faiyaz nunca me ha fallado.",
+            idVideo: "ndrlynZUP-g",
+            urlImagen: "https://i.scdn.co/image/ab67616d00001e026a463f436bbf07f3c9e8c62a"
         },
         {
             titulo: "Brakelights",
-            descripcion: "El toque indie pop perfecto de Omar Apollo para la playlist.",
-            idVideo: "NnLid79b1wA"
+            descripcion: "El toque indie pop y suave perfecto de Omar Apollo.",
+            idVideo: "wvHakwI2Xqw",
+            urlImagen: "https://i1.sndcdn.com/artworks-000237720010-17clyv-t500x500.jpg"
         },
         {
-            titulo: "Crystal Ship",
-            descripcion: "Ese sonido oscuro, lento y melancólico que solo ellos saben lograr.",
-            idVideo: "kI8XasEXm94"
+            titulo: "The Crystal Ship",
+            descripcion: "Ese sonido oscuro que solo tiene Cigarettes After Sex.",
+            idVideo: "65XQOnh20jg",
+            urlImagen: "https://cdn.prod.website-files.com/64cb5f36172f60e17c655f5f/68f6b976b2860d9b54f3dcd8_CAS%20Anna%20Karenina.jpg"
         },
         {
-            titulo: "My Mistakes Were Made for You",
-            descripcion: "Alex Turner y Miles Kane con una pieza con arreglos orquestales brutales.",
-            idVideo: "9cQlioiNidQ"
+            titulo: "Calm Like You",
+            descripcion: "Enérgico y brillante de Alex Turner y Miles Kane con guitarras increíbles.",
+            idVideo: "j7qmADw2Q0w",
+            urlImagen: "https://cdn-images.dzcdn.net/images/cover/f2abdd49acc5b9e91f103fb7e3e30df1/1900x1900-000000-80-0-0.jpg"
         },
         {
             titulo: "Standing on the Shore",
-            descripcion: "Un viaje de sintetizadores épicos e indie pop espectacular de Empire of the Sun.",
-            idVideo: "H9Y78bA-pFM"
+            descripcion: "Una canción que se siente familiar de Empire of the Sun.",
+            idVideo: "0EXekYahE24",
+            urlImagen: "https://upload.wikimedia.org/wikipedia/en/6/6d/Standing_on_the_Shore_-_%28Single_cover_artwork%29.JPG"
         },
         {
             titulo: "Bleed",
-            descripcion: "La dosis perfecta de R&B indie contemporáneo con el estilo único de Malcolm Todd.",
-            idVideo: "gW9wSgB0i8U"
+            descripcion: "La dosis perfecta de R&B indie contémporaneo de Malcolm Todd.",
+            idVideo: "ww-OM_5kPYY",
+            urlImagen: "https://i.scdn.co/image/ab67616d0000b27387607b2c8f5f52f1f057be0d"
         },
         {
             titulo: "Door",
-            descripcion: "Una balada pop con una carga emotiva y guitarras acústicas profundas de Conan Gray.",
-            idVideo: "7Vf8mshH_vE"
+            descripcion: "Un pop con una carga emotiva y acústicos profundos de Conan Gray.",
+            idVideo: "DgoHUxxrgH8",
+            urlImagen: "https://i.scdn.co/image/ab67616d00001e02c439f41d7eca82a31b3e21d1"
         },
         {
             titulo: "Bored",
-            descripcion: "Un toque de jazz moderno impecable con la voz suave y melódica de Laufey.",
-            idVideo: "yvscvQeMshI"
+            descripcion: "Un toque de jazz moderno con la voz suave y melódica de Laufey.",
+            idVideo: "0AEi7Rg7nS0",
+            urlImagen: "https://i.scdn.co/image/ab67616d0000b27313832cc69a78c53b18a8bc10"
         }
     ];
 
     let htmlContenido = "";
 
     for (let i = 0; i < canciones.length; i++) {
-        let contenidoMultimedia = "";
-
-        // Si el video permite iframe (Mitski), lo renderizamos directo
-        if (canciones[i].esIframe) {
-            contenidoMultimedia = `
-                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${canciones[i].idVideo}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            `;
-        } else {
-            // Para los videos bloqueados, generamos una tarjeta interactiva hermosa con su portada oficial en HD
-            contenidoMultimedia = `
-                <div class="position-relative w-100 h-100 rounded overflow-hidden" style="background: url('https://img.youtube.com/vi/${canciones[i].idVideo}/hqdefault.jpg') center/cover; min-height: 180px;">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" style="background: rgba(0,0,0,0.4); transition: background 0.3s;">
-                        <a href="https://www.youtube.com/watch?v=${canciones[i].idVideo}" target="_blank" class="btn btn-danger rounded-pill px-4 py-2 fw-bold shadow d-flex align-items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-                                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
-                            </svg>
-                            Reproducir Audio
-                        </a>
-                    </div>
-                </div>
-            `;
-        }
-
         htmlContenido += `
             <div class="col-12 col-md-6 col-lg-3 mb-4">
-                <div class="card h-100 shadow-sm border-0">
-                    <div class="card-body d-flex flex-column justify-content-between">
+                <div class="card h-100 shadow-sm border-0 py-3">
+                    <div class="card-body d-flex flex-column justify-content-between text-center">
                         <div>
                             <h5 class="card-title fw-bold text-dark text-truncate">${canciones[i].titulo}</h5>
-                            <p class="card-text text-muted small mb-3" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${canciones[i].descripcion}</p>
+                            <p class="card-text text-muted small mb-3" style="display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">${canciones[i].descripcion}</p>
                         </div>
-                        <div class="ratio ratio-16x9 mt-2">
-                            ${contenidoMultimedia}
+                        <div class="mt-2 d-flex justify-content-center align-items-center bg-transparent" style="min-height: 200px;">
+                            <a href="https://www.youtube.com/watch?v=${canciones[i].idVideo}" target="_blank" class="position-relative d-block overflow-hidden rounded shadow-sm" style="width: 200px; height: 200px; transition: transform 0.2s ease;">
+                                <img src="${canciones[i].urlImagen}" class="w-100 h-100" style="object-fit: cover;" alt="Portada">
+                                <div class="position-absolute top-0 start-0 w-100 h-100" style="background: transparent; cursor: pointer;" title="Reproducir en YouTube"></div>
+                            </a>
                         </div>
                     </div>
                 </div>
